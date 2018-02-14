@@ -6,7 +6,6 @@
 		body{
 			 font-family: 'Parisienne';font-size: 22px;
 		}
-	
 	</style>
 </head>
 	
@@ -15,6 +14,5 @@
 		<h1 align="center">About Us</h1>
 		<hr/>
 		<p>This is an about us page</p>	
-		
 </body>
 </html>
