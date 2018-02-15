@@ -1,4 +1,4 @@
-DROP TABLE address, cart, cart_line, category,product, user_detail;
+DROP TABLE IF EXISTS address, cart, cart_line, category,product, user_detail;
 
 CREATE TABLE category (
 	id BIGSERIAL PRIMARY KEY,
