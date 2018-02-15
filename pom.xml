@@ -112,6 +112,13 @@
 			<version>2.0.3</version>
 		</dependency>
 
+		<dependency>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+			<version>42.1.4</version>
+		</dependency>
+
+
 		<!-- Hibernate Dependency -->
 		<dependency>
 			<groupId>org.hibernate</groupId>
