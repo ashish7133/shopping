@@ -61,9 +61,7 @@
 							<hr/>
 						
 							<blockquote style="word-wrap:break-word">
-								
 								${errorDescription}
-							
 							</blockquote>						
 						
 						</div>
