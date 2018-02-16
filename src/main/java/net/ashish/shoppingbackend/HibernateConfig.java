@@ -19,11 +19,11 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 public class HibernateConfig {
 
 	// Change the below based on the DBMS you choose
-	private final static String DATABASE_URL = "jdbc:postgresql://localhost:5432/ecommerce";
+	private final static String DATABASE_URL = "jdbc:postgresql://ec2-54-163-234-99.compute-1.amazonaws.com:5432/d42bh9jqsppppm";
 	private final static String DATABASE_DRIVER = "org.postgresql.Driver";
 	private final static String DATABASE_DIALECT = "org.hibernate.dialect.PostgreSQLDialect";
-	private final static String DATABASE_USERNAME = "postgres";
-	private final static String DATABASE_PASSWORD = "root";
+	private final static String DATABASE_USERNAME = "zxabwbouoeyjgq";
+	private final static String DATABASE_PASSWORD = "c7ff7374a1afd4f34ddec2134a12078d27a3e5b2828524bf6363926f7c5725ad";
 	
 	// dataSource bean will be available
 	@Bean("dataSource")
