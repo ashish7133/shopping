@@ -64,6 +64,25 @@ CREATE TABLE cart_line (
 	is_available boolean
 );
 
+CREATE TABLE order_detail (
+	id BIGSERIAL PRIMARY KEY,
+	user_id INT REFERENCES user_detail(id),
+	order_total DECIMAL(10,2),
+	order_count INT,
+	shipping_id INT REFERENCES address(id),
+	billing_id INT REFERENCES address(id),
+	order_date DATE
+);
+
+CREATE TABLE order_item (
+	id BIGSERIAL PRIMARY KEY,
+	order_id INT REFERENCES order_detail(id),
+	total DECIMAL(10,2),
+	product_id INT REFERENCES product (id),
+	product_count int,
+	buying_price DECIMAL(10,2)
+);
+
 -- adding three categories
 INSERT INTO category (name, description,image_url,is_active) VALUES ('Laptop', 'This is description for Laptop category!', 'CAT_1.png', true);
 INSERT INTO category (name, description,image_url,is_active) VALUES ('Television', 'This is description for Television category!', 'CAT_2.png', true);
