@@ -1,4 +1,11 @@
-DROP TABLE IF EXISTS address, cart, cart_line, category,product, user_detail;
+DROP TABLE IF EXISTS cart_line;
+DROP TABLE IF EXISTS cart;
+DROP TABLE IF EXISTS order_item;
+DROP TABLE IF EXISTS order_detail;
+DROP TABLE IF EXISTS address;
+DROP TABLE IF EXISTS product;
+DROP TABLE IF EXISTS category;
+DROP TABLE IF EXISTS user_detail;
 
 CREATE TABLE category (
 	id BIGSERIAL PRIMARY KEY,

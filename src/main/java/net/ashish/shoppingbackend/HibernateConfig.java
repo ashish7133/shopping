@@ -19,11 +19,11 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 public class HibernateConfig {
 
 	// Change the below based on the DBMS you choose
-	private final static String DATABASE_URL = "jdbc:mysql://localhost:3306/ecommerce";
-	private final static String DATABASE_DRIVER = "com.mysql.cj.jdbc.Driver";
-	private final static String DATABASE_DIALECT = "org.hibernate.dialect.MySQLDialect";
-	private final static String DATABASE_USERNAME = "root";
-	private final static String DATABASE_PASSWORD = "";
+	private final static String DATABASE_URL = "jdbc:postgresql://ec2-54-235-253-198.compute-1.amazonaws.com:5432/d65h6mriooaj3o?user=dshrnmblssmhpd&password=94cc87dff1eb56da367fe188892eb3fb162847a8633fe4f19fcc6616b53d7f6c&sslmode=require";
+	private final static String DATABASE_DRIVER = "org.postgresql.Driver";
+	private final static String DATABASE_DIALECT = "org.hibernate.dialect.PostgreSQLDialect";
+	private final static String DATABASE_USERNAME = "dshrnmblssmhpd";
+	private final static String DATABASE_PASSWORD = "94cc87dff1eb56da367fe188892eb3fb162847a8633fe4f19fcc6616b53d7f6c";
 	
 	// dataSource bean will be available
 	@Bean("dataSource")
@@ -48,7 +48,6 @@ public class HibernateConfig {
 	public SessionFactory getSessionFactory(DataSource dataSource) {
 		
 		LocalSessionFactoryBuilder builder = new LocalSessionFactoryBuilder(dataSource);
-		
 		builder.addProperties(getHibernateProperties());
 		builder.scanPackages("net.ashish.shoppingbackend.dto");
 		
@@ -67,8 +66,8 @@ public class HibernateConfig {
 		properties.put("hibernate.dialect", DATABASE_DIALECT);		
 		properties.put("hibernate.show_sql", "true");
 		properties.put("hibernate.format_sql", "true");
-		
-		//properties.put("hibernate.hbm2ddl.auto", "create");
+//		properties.put("hibernate.ejb.naming_strategy", "org.hibernate.cfg.ImprovedNamingStrategy");		//hibernate.ejb.naming_strategy
+		properties.put("hibernate.hbm2ddl.auto", "create");
 		
 		
 		return properties;
@@ -80,6 +79,4 @@ public class HibernateConfig {
 		HibernateTransactionManager transactionManager = new HibernateTransactionManager(sessionFactory);
 		return transactionManager;
 	}
-	
-	
 }

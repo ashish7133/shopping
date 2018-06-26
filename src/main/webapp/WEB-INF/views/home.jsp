@@ -73,7 +73,6 @@
                                 <a ng-href="${contextRoot}/show/{{product.id}}/product" class="btn btn-primary center-block" >View</a>
                             </div>
                         </div>
-                        
                     </div>
 
                     <div class="col-sm-4 col-lg-4 col-md-4">

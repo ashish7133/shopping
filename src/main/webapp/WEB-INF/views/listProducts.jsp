@@ -2,7 +2,6 @@
 
 	<div class="row">
 
-
 		<!-- Would be to display sidebar -->
 		<div class="col-md-3">
 
@@ -26,15 +25,12 @@
 					
 						<ol class="breadcrumb">
 
-
 							<li><a href="${contextRoot}/home">Home</a></li>
 							<li class="active">All Products</li>
 
-
 						</ol>
 					</c:if>
-					
-					
+										
 					<c:if test="${userClickCategoryProducts == true}">
 						<script>
 							window.categoryId = '${category.id}';
@@ -100,16 +96,8 @@
 			
 			</div>
 
-
 		</div>
 
-
-
 	</div>
-
-
-
-
-
-
+	
 </div>
