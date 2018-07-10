@@ -1,5 +1,7 @@
 package net.ashish.shoppingbackend;
 
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.util.Properties;
 
 import javax.sql.DataSource;
@@ -27,23 +29,36 @@ public class HibernateConfig {
 	
 	// dataSource bean will be available
 	@Bean("dataSource")
-	public DataSource getDataSource() {
+	public DataSource getDataSource() throws URISyntaxException {
 		
 		BasicDataSource dataSource = new BasicDataSource();
 		
 		// Providing the database connection information
-		dataSource.setDriverClassName(DATABASE_DRIVER);
-		dataSource.setUrl(DATABASE_URL);
-		dataSource.setUsername(DATABASE_USERNAME);
-		dataSource.setPassword(DATABASE_PASSWORD);
-				
-		
-		return dataSource;
+//		dataSource.setDriverClassName(DATABASE_DRIVER);
+//		dataSource.setUrl(DATABASE_URL);
+//		dataSource.setUsername(DATABASE_USERNAME);
+//		dataSource.setPassword(DATABASE_PASSWORD);
+//					
+//		return dataSource;
+
+        URI dbUri = new URI(System.getenv("DATABASE_URL"));
+
+        String username = dbUri.getUserInfo().split(":")[0];
+        String password = dbUri.getUserInfo().split(":")[1];
+        String dbUrl = "jdbc:postgresql://" + dbUri.getHost() + ':' + dbUri.getPort() + dbUri.getPath() + "?sslmode=require";
+
+        BasicDataSource basicDataSource = new BasicDataSource();
+        basicDataSource.setUrl(dbUrl);
+        basicDataSource.setUsername(username);
+        basicDataSource.setPassword(password);
+
+        return basicDataSource;		
 		
 	}
+
+	
 	
 	// sessionFactory bean will be available
-	
 	@Bean
 	public SessionFactory getSessionFactory(DataSource dataSource) {
 		
