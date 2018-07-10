@@ -1,1 +1,1 @@
-web: sh target/shopping
+web: target/shopping
