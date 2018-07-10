@@ -1,1 +1,1 @@
-web: java -war target/shopping-0.0.1-SNAPSHOT.jar
+web: java -jar target/shopping-0.0.1-SNAPSHOT.jar
