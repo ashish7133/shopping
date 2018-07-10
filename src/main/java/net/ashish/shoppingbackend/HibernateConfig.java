@@ -19,10 +19,10 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 public class HibernateConfig {
 
 	// Change the below based on the DBMS you choose
-	private final static String DATABASE_URL = "jdbc:mysql://localhost:3306/onlineshopping";
-	private final static String DATABASE_DRIVER = "com.mysql.cj.jdbc.Driver";
-	private final static String DATABASE_DIALECT = "org.hibernate.dialect.MySQL5Dialect";
-	private final static String DATABASE_USERNAME = "root";
+	private final static String DATABASE_URL = "#{ 'jdbc:postgresql://' + @dbUrl.getHost() + ':' + @dbUrl.getPort() + @dbUrl.getPath() + '?sslmode=require' }";
+	private final static String DATABASE_DRIVER = "org.postgresql.Driver";
+	private final static String DATABASE_DIALECT = "org.hibernate.dialect.PostgreSQL82Dialect";
+	private final static String DATABASE_USERNAME = "#{ @dbUrl.getUserInfo().split(':')[0] }";
 	private final static String DATABASE_PASSWORD = "";
 	
 	// dataSource bean will be available
